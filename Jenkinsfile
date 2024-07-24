@@ -18,9 +18,7 @@ pipeline{
                 echo "MY_NUMBER : ${env.MY_NUMBER }"
                 
             }
-            steps{
-                sh 'printenv'
-            }
+            
         }
         
         
