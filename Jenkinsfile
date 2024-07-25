@@ -1,51 +1,29 @@
 pipeline{
     agent any
 
-    parameters {
-            string(name: 'PERSONNE', defaultValue: 'M. JENKINS', description: 'A qui devrais - je dire bonjour?')
-            text(name: 'BIOGRAPHIE', defaultValue: '', description: 'Entrez les informations sur la personne')
-            booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Activez cette valeur')
-            choice(name: 'CHOIX', choices: ['UN', 'DEUX', 'TROIS'], description: 'Faites un choix')
-            password(name: 'MOT_DE_PASSE', defaultValue: 'SECRET', description: 'Entrez un mot de passe')
+    triggers {
+        pollSCM('H/2 * * * *')
     }
 
     stages{
-         stage('Example'){
-                options {
-                    timeout(time: 1, unit: 'HOURS')
-                }
-                steps {
-                    echo "Hello World!"
-                }
-        }
-
-        stage('Example 2'){
-            steps{
-                echo "Bonjour ${PERSONNE}"
-                echo "Biographie ${BIOGRAPHIE}"
-                echo "Toggle ${TOGGLE}"
-                echo "Choix ${CHOIX}"
-                echo "Mode de passe ${MOT_DE_PASSE}"
-            }
-        }
-
-        stage("A"){
-            steps{
-                echo "====++++executing A++++===="
-            }
-            post{
-                always{
-                    echo "====++++always++++===="
-                }
-                success{
-                    echo "====++++A executed successfully++++===="
-                }
-                failure{
-                    echo "====++++A execution failed++++===="
-                }
         
+
+        stage('Build'){
+            steps{
+                echo "Etape 2 de construction en cours"
             }
         }
+        stage('Test'){
+            steps{
+                echo "Etape  de test en cours"
+            }
+        }
+         stage('Deploy'){
+            steps{
+                echo "Etape  de depoiement en cours"
+            }
+        }
+       
     }
 
    
