@@ -1,23 +1,36 @@
 pipeline{
     agent any
+    stages{
 
-    environment{
-        MY_VAR = 'une variable'
-        MY_NUMBER = 123
-    }
-
-    stages {
-       
-            stage('Example'){
+         stage('Example'){
                 options {
                     timeout(time: 1, unit: 'HOURS')
                 }
                 steps {
                     echo "Hello World!"
                 }
+        }
+
+        stage("A"){
+            steps{
+                echo "====++++executing A++++===="
+            }
+            post{
+                always{
+                    echo "====++++always++++===="
+                }
+                success{
+                    echo "====++++A executed successfully++++===="
+                }
+                failure{
+                    echo "====++++A execution failed++++===="
+                }
+        
             }
         }
-        
-        
     }
+
+   
+
+
 }
