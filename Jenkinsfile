@@ -22,10 +22,10 @@ pipeline{
         stage('Example 2'){
             steps{
                 echo "Bonjour ${PERSONNE}"
-                echo "Bonjour ${BIOGRAPHIE}"
-                echo "Bonjour ${TOGGLE}"
-                echo "Bonjour ${CHOIX}"
-                echo "Bonjour ${MOT_DE_PASSE}"
+                echo "Biographie ${BIOGRAPHIE}"
+                echo "Toggle ${TOGGLE}"
+                echo "Choix ${CHOIX}"
+                echo "Mode de passe ${MOT_DE_PASSE}"
             }
         }
 
