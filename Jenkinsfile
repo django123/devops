@@ -5,7 +5,7 @@ pipeline{
             string(name: 'PERSONNE', defaultValue: 'M. JENKINS', description: 'A qui devrais - je dire bonjour?')
             text(name: 'BIOGRAPHIE', defaultValue: '', description: 'Entrez les informations sur la personne')
             booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Activez cette valeur')
-            choice(name: 'CHOIX', defaultValue: ['UN', 'DEUX', 'TROIS'], description: 'Faites un choix')
+            choice(name: 'CHOIX', choices: ['UN', 'DEUX', 'TROIS'], description: 'Faites un choix')
             password(name: 'MOT_DE_PASSE', defaultValue: 'SECRET', description: 'Entrez un mot de passe')
     }
 
