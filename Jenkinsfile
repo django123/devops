@@ -1,27 +1,20 @@
 pipeline{
     agent any
 
-    triggers {
-        pollSCM('H/2 * * * *')
-    }
 
-    stages{
+    stages {
         
 
-        stage('Build'){
+        stage('Build et Test '){
             steps{
-                echo "Etape 2 de construction en cours"
-            }
-        }
-        stage('Test'){
-            steps{
-                echo "Etape  de test en cours"
+                echo "Construire et tester l'application"
             }
         }
         stage('Deployment parallèle'){
 
             failFast true
             parallel {
+
                 stage('Deployement Dev'){
                     steps {
                         echo "Etape de deployment dev en cours"
@@ -34,10 +27,7 @@ pipeline{
                     }
                 }
             }
-           
-            steps{
-                echo "Etape  de depoiement en cours"
-            }
+
         }
        
     }
