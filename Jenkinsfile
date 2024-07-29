@@ -20,7 +20,10 @@ pipeline{
         }
          stage('Deployment production'){
             when {
-                branch 'master'
+                allOf {
+                    branch 'master'
+                    environment name: 'DEPLOY_TO', value: 'production'
+                }
             }
             steps{
                 echo "Etape  de depoiement en cours"
