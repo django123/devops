@@ -18,9 +18,9 @@ pipeline{
                 echo "Etape  de test en cours"
             }
         }
-         stage('Deployment parallèle'){
+        stage('Deployment parallèle'){
 
-            failure true
+            failFast true
             parallel {
                 stage('Deployement Dev'){
                     steps {
