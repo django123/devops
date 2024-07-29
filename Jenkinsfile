@@ -18,7 +18,10 @@ pipeline{
                 echo "Etape  de test en cours"
             }
         }
-         stage('Deploy'){
+         stage('Deployment production'){
+            when {
+                branch 'prod'
+            }
             steps{
                 echo "Etape  de depoiement en cours"
             }
